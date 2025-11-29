@@ -642,7 +642,471 @@
       object-fit: cover;
     }
 
+    /* Research Section Styles */
+    .research-section-container {
+        max-width: 100%;
+    }
 
+    /* Milestone Progress Bar */
+    .milestone-container {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        padding: 40px;
+        border-radius: 15px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(44, 95, 141, 0.2);
+    }
+
+    .milestone-title {
+        color: var(--white);
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .milestone-tracker {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .milestone-tracker::before {
+        content: '';
+        position: absolute;
+        top: 35px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        z-index: 1;
+    }
+
+    .milestone-progress-line {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        height: 4px;
+        background: var(--white);
+        z-index: 2;
+        transition: width 1.5s ease;
+        width: 0%;
+    }
+
+    .milestone-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 3;
+    }
+
+    .milestone-dot {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        border: 3px solid var(--white);
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .milestone-item.completed .milestone-dot {
+        background: var(--white);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    .milestone-item.completed .milestone-dot::after {
+        content: '✓';
+        color: var(--primary-blue);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .milestone-item.in-progress .milestone-dot {
+        background: linear-gradient(45deg, var(--white) 50%, rgba(255, 255, 255, 0.3) 50%);
+        animation: pulse 2s infinite;
+    }
+
+    .milestone-label {
+        color: var(--white);
+        font-size: 0.85rem;
+        text-align: center;
+        max-width: 100px;
+        line-height: 1.3;
+        font-weight: 500;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    /* Research Tabs */
+    .research-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--border-color);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .research-tab {
+        padding: 15px 30px;
+        background: transparent;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+        position: relative;
+        bottom: -2px;
+        font-family: inherit;
+    }
+
+    .research-tab:hover {
+        color: var(--primary-blue);
+    }
+
+    .research-tab.active {
+        color: var(--primary-blue);
+        border-bottom-color: var(--primary-blue);
+    }
+
+    /* Research Section Styles */
+    /* Research Section - Compact Design */
+    .research-overview {
+        background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(44, 95, 141, 0.2);
+        color: white;
+    }
+
+    .research-overview h3 {
+        color: white;
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.4rem;
+    }
+
+    /* Research Grid - 4 columns side by side */
+    .research-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .research-grid-item {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    .research-grid-item:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-3px);
+    }
+
+    .research-grid-item.active-project {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .project-icon-large {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .project-name {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    .project-status {
+        font-size: 0.85rem;
+        opacity: 0.9;
+        padding: 5px 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    /* Progress Bar - Compact */
+    .progress-container {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+
+    .progress-title {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        text-align: center;
+        opacity: 0.95;
+    }
+
+    .progress-track {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding: 10px 0;
+    }
+
+    .progress-track::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.3);
+        z-index: 1;
+    }
+
+    .progress-line {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        height: 3px;
+        background: white;
+        z-index: 2;
+        transition: width 1.5s ease;
+        width: 0%;
+    }
+
+    .progress-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 3;
+        position: relative;
+    }
+
+    .progress-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        border: 2px solid white;
+        margin-bottom: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .progress-step.done .progress-dot {
+        background: white;
+    }
+
+    .progress-step.done .progress-dot::after {
+        content: '✓';
+        color: var(--primary-blue);
+        font-weight: bold;
+        font-size: 12px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .progress-step.active .progress-dot {
+        background: linear-gradient(45deg, white 50%, rgba(255, 255, 255, 0.3) 50%);
+        animation: pulse 2s infinite;
+    }
+
+    .progress-label {
+        font-size: 0.7rem;
+        text-align: center;
+        max-width: 60px;
+        line-height: 1.2;
+        opacity: 0.9;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+
+    /* Detail Tabs - Horizontal */
+    .detail-tabs {
+        display: flex;
+        gap: 10px;
+        margin: 30px 0 20px;
+        border-bottom: 2px solid var(--border-color);
+        flex-wrap: wrap;
+    }
+
+    .detail-tab {
+        padding: 12px 24px;
+        background: transparent;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+        position: relative;
+        bottom: -2px;
+        font-family: inherit;
+    }
+
+    .detail-tab:hover {
+        color: var(--primary-blue);
+    }
+
+    .detail-tab.active {
+        color: var(--primary-blue);
+        border-bottom-color: var(--primary-blue);
+    }
+
+    /* Content Cards - Compact Two Column */
+    .detail-content {
+        display: none;
+    }
+
+    .detail-content.active {
+        display: block;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .info-card {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid var(--accent-teal);
+    }
+
+    .info-card h4 {
+        color: var(--primary-blue);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .info-card p, .info-card ul {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text-dark);
+    }
+
+    .info-card ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+
+    .info-card li {
+        margin: 8px 0;
+    }
+
+    .full-width {
+        grid-column: 1 / -1;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border-left: 4px solid #3b82f6;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+
+    .highlight-box p {
+        margin: 8px 0;
+        color: #1e3a8a;
+    }
+
+    .tag-list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+
+    .tag {
+        padding: 6px 14px;
+        background: var(--light-gray);
+        border-radius: 15px;
+        font-size: 0.8rem;
+        color: var(--primary-blue);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .research-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .content-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .research-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .progress-track {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .progress-track::before,
+        .progress-line {
+            width: 3px;
+            height: 100%;
+            left: 10px;
+            top: 0;
+        }
+
+        .progress-line {
+            height: 0%;
+        }
+
+        .progress-step {
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        .progress-label {
+            text-align: left;
+            max-width: none;
+        }
+    }
   </style>
 </head>
 <body>
@@ -661,6 +1125,7 @@
     <button class="nav-btn" onclick="showSection('skills')">Skills</button>
     <button class="nav-btn" onclick="showSection('projects')">Projects</button>
     <button class="nav-btn" onclick="showSection('gallery')">Gallery</button>
+      <button class="nav-btn" onclick="showSection('research')">Research</button>
     <button class="nav-btn" onclick="showSection('experience')">Experience</button>
     <button class="nav-btn" onclick="showSection('contact')">Contact</button>
   </nav>
@@ -848,13 +1313,13 @@
 
         <div class="projects-grid">
 
-          <!-- PROJECT 2 – WALL-E Educational Robot -->
+          <!-- PROJECT 2 –Walden-->
           <div class="project-card">
-            <img src="./assets/gallery/CoverWalle.png" class="project-cover" alt="WALL-E Robot">
+            <img src="/assets/gallery/CoverWalle.png" class="project-cover" alt="WALL-E Robot">
 
             <div class="project-header">
               <span class="project-icon">🤖</span>
-              <h3>WALL-E Inspired AI Classroom Learning Robot</h3>
+              <h3>WALDEN: AI-Powered Educational Assistant Robot</h3>
             </div>
 
             <div class="project-content">
@@ -892,7 +1357,7 @@
 
           <!-- PROJECT 3 – Wheels N' Works -->
           <div class="project-card">
-            <img src="assets/gallery/CoverNonCustomer.png" class="project-cover" alt="Wheels N Works">
+            <img src="/assets/gallery/CoverNonCustomer.png" class="project-cover" alt="Wheels N Works">
 
             <div class="project-header">
               <span class="project-icon">🚙</span>
@@ -944,7 +1409,7 @@
 
           <!-- PROJECT – Tale Bot -->
           <div class="project-card">
-            <img src="assets/gallery/TaleBot.png" class="project-cover" alt="Tale Bot">
+            <img src="/assets/gallery/TaleBot.png" class="project-cover" alt="Tale Bot">
 
             <div class="project-header">
               <span class="project-icon">📚</span>
@@ -992,7 +1457,7 @@
 
           <!-- PROJECT 1 – EcoSort Edu -->
           <div class="project-card">
-            <img src="assets/gallery/CoverEcoSortEdu.png" class="project-cover" alt="EcoSort Edu">
+            <img src="/assets/gallery/CoverEcoSortEdu.png" class="project-cover" alt="EcoSort Edu">
 
             <div class="project-header">
               <span class="project-icon">♻️</span>
@@ -1050,7 +1515,7 @@
         <div class="gallery-grid">
 
           <div class="gallery-item" onclick="openGallery('Multifunction Robot')">
-            <img src="assets/gallery/CoverMultiFunc.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverMultiFunc.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Multifunction Robot</h3>
               <p>Complete assembly</p>
@@ -1058,7 +1523,7 @@
           </div>
 
           <div class="gallery-item" onclick="openGallery('WALDEN Robot')">
-            <img src="assets/gallery/CoverWalle.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverWalle.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>WALDEN Robot</h3>
               <p>AI educational assistant</p>
@@ -1066,7 +1531,7 @@
           </div>
 
           <div class="gallery-item" onclick="openGallery('TaleBot')">
-            <img src="assets/gallery/TaleBot.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/TaleBot.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>TaleBot</h3>
               <p>Interactive AI storytelling robot.<strong>UP COMING...</strong></p>
@@ -1075,7 +1540,7 @@
           </div>
 
           <div class="gallery-item" onclick="openGallery('EcoSort Edu')">
-            <img src="assets/gallery/CoverEcoSortEdu.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverEcoSortEdu.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>EcoSort Edu</h3>
               <p>AI-powered waste sorting robot.<strong>UP COMING...</strong></p>
@@ -1089,7 +1554,7 @@
 
           <!-- Home -->
           <div class="gallery-item" onclick="openGallery('Hero Page-Home')">
-            <img src="assets/gallery/HomePage1.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/HomePage1.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Home Page</h3>
               <p>Wheels N' Works Interface</p>
@@ -1104,7 +1569,7 @@
 
           <!-- Non-Customer System -->
           <div class="gallery-item" onclick="openGallery('Non-Customer Management System')">
-            <img src="assets/gallery/CoverNonCustomer.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverNonCustomer.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Non-Customer Management System</h3>
               <p>Non-customers are assigned a default customer ID and receive appointment details via email,
@@ -1115,7 +1580,7 @@
 
           <!-- Customer Management -->
           <div class="gallery-item" onclick="openGallery('Customer Management System')">
-            <img src="assets/gallery/CoverCustomer.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverCustomer.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Customer Management System</h3>
               <p>Customers can register, log in, and manage their profile. They can book appointments and edit or delete only current bookings—not past ones.
@@ -1126,7 +1591,7 @@
 
           <!-- Admin Management System -->
           <div class="gallery-item" onclick="openGallery('Admin Management System')">
-            <img src="assets/gallery/admin-cover.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/admin-cover.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Shop Owners-Admin Management System</h3>
               <p>Approved shop owners receive login details and can manage their shop info, services, appointments, and invoices. They can book appointments for customers, add service charges, and send or download invoices as PDF.
@@ -1137,7 +1602,7 @@
 
           <!--Super Admin Dashboard -->
           <div class="gallery-item" onclick="openGallery('Super Admin Dashboard')">
-            <img src="assets/gallery/CoverSuperAdmin1.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverSuperAdmin1.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Super Admin Dashboard</h3>
               <p>Super Admin can manage all shops—add, edit, or delete shop owners—and view system insights such as total appointments,
@@ -1147,7 +1612,7 @@
 
           <!--Mail Services -->
           <div class="gallery-item" onclick="openGallery('Mail Services')">
-            <img src="assets/gallery/CoverMail.png" class="gallery-cover" alt="">
+            <img src="/assets/gallery/CoverMail.png" class="gallery-cover" alt="">
             <div class="gallery-caption">
               <h3>Mail Services</h3>
               <p>The mails you receive while booking and signing up as admin and invoices of service.</p>
@@ -1160,59 +1625,339 @@
     </section>
 
 
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="content-section">
-      <div class="section-card">
-        <h2>Professional Experience</h2>
+      <!-- ============================================ -->
+      <!-- REPLACE YOUR RESEARCH SECTION WITH THIS -->
+      <!-- ============================================ -->
 
-        <div class="experience-item">
-          <div class="experience-header">
-            <div>
-              <h3 class="experience-title">Full-Stack Web Development Intern</h3>
-              <p class="experience-company">Tech Company / Calanjiyam Consultancies Technology</p>
-            </div>
-            <span class="experience-date">10 Weeks | JUL- OCT 2024</span>
-          </div>
-          <div class="experience-description">
-            <p>Completed an intensive 10-week full-stack development internship, designing and developing <strong>Wheels n' Works</strong>, a comprehensive vehicle repair workshop management system from concept to deployment.</p>
+      <section id="research" class="content-section">
+          <div class="section-card">
+              <h2>Research Portfolio</h2>
 
-            <p><strong>Key Responsibilities & Achievements:</strong></p>
-            <ul>
-              <li>Architected multi-user web application with three role-based dashboards</li>
-              <li>Built responsive front-end using HTML5, CSS3, and JavaScript</li>
-              <li>Developed back-end logic and database management with PHP and MySQL</li>
-              <li>Designed and implemented RESTful APIs for data communication</li>
-              <li>Created secure authentication and session management systems</li>
-              <li>Implemented CRUD operations for appointments, repairs, and billing</li>
-              <li>Integrated real-time status tracking and notifications</li>
-              <li>Managed version control using Git and GitHub</li>
-              <li>Conducted API testing with Postman</li>
-            </ul>
+              <!-- Compact Overview -->
+              <div class="research-overview">
+                  <h3>Active Research & Projects</h3>
 
-            <p><strong>Impact:</strong> Delivered production-ready application that streamlined workshop operations, reduced booking time, and provided comprehensive business analytics.</p>
-          </div>
-        </div>
+                  <!-- 4-Column Grid -->
+                  <div class="research-grid">
+                      <div class="research-grid-item">
+                          <span class="project-icon-large">📚</span>
+                          <div class="project-name">Literature Review</div>
+                          <span class="project-status">✓ Completed</span>
+                      </div>
 
-        <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-number">10</span>
-            <span class="stat-label">Weeks Duration</span>
+                      <div class="research-grid-item active-project">
+                          <span class="project-icon-large">🤖</span>
+                          <div class="project-name">WALDEN</div>
+                          <span class="project-status">● Active Research</span>
+                      </div>
+
+                      <div class="research-grid-item">
+                          <span class="project-icon-large">📖</span>
+                          <div class="project-name">TaleBot</div>
+                          <span class="project-status">⚙️ FYP in Progress</span>
+                      </div>
+
+                      <div class="research-grid-item">
+                          <span class="project-icon-large">♻️</span>
+                          <div class="project-name">EcoSort Edu</div>
+                          <span class="project-status">🎓 PhD Proposal</span>
+                      </div>
+                  </div>
+
+                  <!-- Compact Progress Bar -->
+                  <div class="progress-container">
+                      <div class="progress-title">WALDEN Study Progress</div>
+                      <div class="progress-track">
+                          <div class="progress-line" data-progress="42.8%"></div>
+
+                          <div class="progress-step done">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Problem</span>
+                          </div>
+                          <div class="progress-step done">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Literature</span>
+                          </div>
+                          <div class="progress-step done">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Prelim Results</span>
+                          </div>
+                          <div class="progress-step active">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">IRB Approval</span>
+                          </div>
+                          <div class="progress-step">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Expanded</span>
+                          </div>
+                          <div class="progress-step">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Analysis</span>
+                          </div>
+                          <div class="progress-step">
+                              <div class="progress-dot"></div>
+                              <span class="progress-label">Paper</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Detail Tabs -->
+              <div class="detail-tabs">
+                  <button class="detail-tab active" onclick="showDetailTab(0)">WALDEN Study</button>
+                  <button class="detail-tab" onclick="showDetailTab(1)">TaleBot (FYP)</button>
+                  <button class="detail-tab" onclick="showDetailTab(2)">EcoSort Edu</button>
+                  <button class="detail-tab" onclick="showDetailTab(3)">Literature Review</button>
+              </div>
+
+              <!-- WALDEN Details -->
+              <div class="detail-content active">
+                  <div class="content-grid">
+                      <div class="info-card">
+                          <h4>🎯 Research Gap</h4>
+                          <p>Most research focuses on <strong>high-cost robots ($5,000+)</strong>. Limited exploration of affordable, emotionally engaging robots for everyday classrooms.</p>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>📊 Study Design</h4>
+                          <p><strong>N = 200 students</strong> across government schools in Hyderabad. Quasi-experimental with control groups.</p>
+                          <p><strong>Status:</strong> IRB approval in progress</p>
+                      </div>
+
+                      <div class="info-card full-width">
+                          <h4>❓ Research Questions</h4>
+                          <div class="highlight-box">
+                              <p><strong>RQ1:</strong> Can low-budget AI tutors replace unrestricted devices?</p>
+                              <p><strong>RQ2:</strong> Does embodied AI character increase learning engagement?</p>
+                              <p><strong>RQ3:</strong> Is restricted AI effective for education?</p>
+                              <p><strong>RQ4:</strong> Are students gaining measurable knowledge?</p>
+                          </div>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>📈 Expected Outcomes</h4>
+                          <p>Learning gains within <strong>15-20%</strong> of expensive systems, at <strong>less than 1/50th the cost</strong>.</p>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>🏷️ Keywords</h4>
+                          <div class="tag-list">
+                              <span class="tag">Embodied Cognition</span>
+                              <span class="tag">Low-Cost Design</span>
+                              <span class="tag">Government Schools</span>
+                              <span class="tag">Educational Equity</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- TaleBot Details -->
+              <div class="detail-content">
+                  <div class="content-grid">
+                      <div class="info-card">
+                          <h4>🎯 Gap Analysis</h4>
+                          <p><strong>Problem:</strong> Text AI lacks engagement, expensive robots ($500+) lack creative writing focus.</p>
+                          <p><strong>Solution:</strong> Affordable robot + AI storytelling + web platform</p>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>⚙️ Project Status</h4>
+                          <p><strong>Type:</strong> Final Year Project (FYP)</p>
+                          <p><strong>Stage:</strong> System design & development</p>
+                          <p><strong>Timeline:</strong> 2024-2025</p>
+                      </div>
+
+                      <div class="info-card full-width">
+                          <h4>❓ Research Questions</h4>
+                          <div class="highlight-box">
+                              <p><strong>RQ1:</strong> Can affordable robot increase creative writing engagement?</p>
+                              <p><strong>RQ2:</strong> How does AI storytelling affect narrative complexity?</p>
+                              <p><strong>RQ3:</strong> What HRI design elements work best for creative writing?</p>
+                          </div>
+                          <div class="highlight-box" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-color: #3b82f6;">
+                              <p><strong>Hypothesis:</strong> Students using TaleBot will show significant improvements in creative confidence, story structure, and vocabulary diversity.</p>
+                          </div>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>🎨 System Features</h4>
+                          <ul>
+                              <li>Voice-interactive storytelling</li>
+                              <li>AI-powered story prompts</li>
+                              <li>Web-based writing platform</li>
+                              <li>Immediate creativity feedback</li>
+                          </ul>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>🏷️ Keywords</h4>
+                          <div class="tag-list">
+                              <span class="tag">Creative Writing</span>
+                              <span class="tag">AI Storytelling</span>
+                              <span class="tag">Elementary Education</span>
+                              <span class="tag">HRI</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- EcoSort Details -->
+              <div class="detail-content">
+                  <div class="content-grid">
+                      <div class="info-card">
+                          <h4>🎓 Why Graduate Research?</h4>
+                          <ul>
+                              <li><strong>Advanced self-trained AI</strong></li>
+                              <li><strong>Lab facilities required</strong></li>
+                              <li><strong>Multi-year longitudinal study</strong></li>
+                              <li><strong>Complex computer vision</strong></li>
+                          </ul>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>📋 System Overview</h4>
+                          <p>4-Phase Learning: <strong>Data Collection → Training → Testing → Application</strong></p>
+                          <p><strong>Target:</strong> Ages 10-16</p>
+                          <p><strong>Focus:</strong> Environmental science + AI literacy</p>
+                      </div>
+
+                      <div class="info-card full-width">
+                          <h4>❓ Key Research Questions (6 RQs)</h4>
+                          <div class="highlight-box">
+                              <p><strong>RQ1: Learning Effectiveness </strong> How does hands-on interaction with EcoSort Edu's dual-mode system affect students' conceptual understanding of AI/machine learning and environmental science compared to traditional instruction methods?</p>
+                              <p><strong>RQ2: Behavioral Impact</strong> To what extent does participation in the EcoSort Edu program—including witnessing autonomous deployment—influence students' waste-sorting behaviors and environmental attitudes in and beyond the classroom?</p>
+                              <p><strong>RQ3: Pedagogical Design </strong>What specific design features of the learning-to-deployment workflow contribute most significantly to learning outcomes and student engagement?</p>
+                              <p><strong>RQ4:Autonomous Mode Impact</strong> How does witnessing the autonomous cafeteria deployment affect students' (a) understanding of AI's real-world applications, (b) self-efficacy ("my learning matters"), and (c) career interest in STEM fields?</p>
+                              <p><strong>RQ5:Implementation Factors</strong> What are the key facilitators and barriers to implementing EcoSort Edu in government schools from teachers' perspectives, and what support structures are needed?</p>
+                              <p><strong>RQ6:AI Literacy Development</strong> Can students develop sophisticated understanding of AI concepts (training data quality, accuracy metrics, bias, limitations) through non-programming-based interaction with the system?</p>
+                              <p><strong>RQ7: Transfer of Learning</strong> Do students recognize their classroom training data being applied in the autonomous system, and how does this recognition affect their perception of learning's real-world relevance?</p>
+                      </div>
+                      </div>
+                      <div class="info-card">
+                          <h4>🔬 Requirements</h4>
+                          <ul>
+                              <li>GPU training infrastructure</li>
+                              <li>Robotic sorting hardware</li>
+                              <li>Dedicated lab space</li>
+                              <li>Multi-school coordination</li>
+                          </ul>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>🏷️ Keywords</h4>
+                          <div class="tag-list">
+                              <span class="tag">Computer Vision</span>
+                              <span class="tag">Environmental Ed</span>
+                              <span class="tag">Behavioral Change</span>
+                              <span class="tag">Self-Training AI</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Literature Review Details -->
+              <div class="detail-content">
+                  <div class="content-grid">
+                      <div class="info-card">
+                          <h4>📚 Research Focus</h4>
+                          <p>Systematic analysis of educational robotics, identifying gaps in <strong>accessibility and cost-effective solutions</strong> for developing regions.</p>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>✅ Status</h4>
+                          <p><strong>Completed 2024</strong></p>
+                          <p>Foundation for all subsequent research projects.</p>
+                      </div>
+
+                      <div class="info-card full-width">
+                          <h4>🔍 Critical Gap Identified</h4>
+                          <div class="highlight-box" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-color: #f59e0b;">
+                              <p><strong>Problem:</strong> Most research focuses on high-cost or lab-based systems (NAO robots $5,000+), impractical for everyday classrooms.</p>
+                              <p><strong>Gap:</strong> Limited exploration of low-cost, emotionally engaging, student-friendly robots.</p>
+                              <p><strong>Solution Direction:</strong> Combine affordability + affective interaction + educational effectiveness.</p>
+                          </div>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>📊 Key Findings</h4>
+                          <ul>
+                              <li>Robotics improves engagement & cognitive skills</li>
+                              <li>Evidence supports learning outcomes</li>
+                              <li>Cost barrier prevents adoption</li>
+                              <li>Need for affordable alternatives</li>
+                          </ul>
+                      </div>
+
+                      <div class="info-card">
+                          <h4>🏷️ Keywords</h4>
+                          <div class="tag-list">
+                              <span class="tag">Systematic Review</span>
+                              <span class="tag">Cost Analysis</span>
+                              <span class="tag">Research Gap</span>
+                              <span class="tag">Pedagogical Methods</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
           </div>
-          <div class="stat-item">
-            <span class="stat-number">1</span>
-            <span class="stat-label">Full Application</span>
+
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="content-section">
+          <div class="section-card">
+              <h2>Professional Experience</h2>
+
+              <div class="experience-item">
+                  <div class="experience-header">
+                      <div>
+                          <h3 class="experience-title">Full-Stack Web Development Intern</h3>
+                          <p class="experience-company">Tech Company / Calanjiyam Consultancies Technology</p>
+                      </div>
+                      <span class="experience-date">10 Weeks | JUL- OCT 2024</span>
+                  </div>
+                  <div class="experience-description">
+                      <p>Completed an intensive 10-week full-stack development internship, designing and developing <strong>Wheels n' Works</strong>, a comprehensive vehicle repair workshop management system from concept to deployment.</p>
+
+                      <p><strong>Key Responsibilities & Achievements:</strong></p>
+                      <ul>
+                          <li>Architected multi-user web application with three role-based dashboards</li>
+                          <li>Built responsive front-end using HTML5, CSS3, and JavaScript</li>
+                          <li>Developed back-end logic and database management with PHP and MySQL</li>
+                          <li>Designed and implemented RESTful APIs for data communication</li>
+                          <li>Created secure authentication and session management systems</li>
+                          <li>Implemented CRUD operations for appointments, repairs, and billing</li>
+                          <li>Integrated real-time status tracking and notifications</li>
+                          <li>Managed version control using Git and GitHub</li>
+                          <li>Conducted API testing with Postman</li>
+                      </ul>
+
+                      <p><strong>Impact:</strong> Delivered production-ready application that streamlined workshop operations, reduced booking time, and provided comprehensive business analytics.</p>
+                  </div>
+              </div>
+
+              <div class="stats-grid">
+                  <div class="stat-item">
+                      <span class="stat-number">10</span>
+                      <span class="stat-label">Weeks Duration</span>
+                  </div>
+                  <div class="stat-item">
+                      <span class="stat-number">1</span>
+                      <span class="stat-label">Full Application</span>
+                  </div>
+                  <div class="stat-item">
+                      <span class="stat-number">3 + 1</span>
+                      <span class="stat-label">User Dashboards + Super Admin Dashboard for Analysis and Shop Registration</span>
+                  </div>
+                  <div class="stat-item">
+                      <span class="stat-number">100%</span>
+                      <span class="stat-label">Completion Rate</span>
+                  </div>
+              </div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">3 + 1</span>
-            <span class="stat-label">User Dashboards + Super Admin Dashboard for Analysis and Shop Registration</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">Completion Rate</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="content-section">
@@ -1410,6 +2155,15 @@
     // PROJECT IMAGE DATABASE
   // PROJECT IMAGE DATABASE
   const galleryImages = {
+    "Robotic Arm": [
+      "assets/gallery/robotic-arm-1.jpg",
+      "assets/gallery/robotic-arm-2.jpg",
+      "assets/gallery/robotic-arm-3.jpg"
+    ],
+    "Line Follower Robot": [
+      "assets/gallery/line-1.jpg",
+      "assets/gallery/line-2.jpg"
+    ],
     "Multifunction Robot": [
       "assets/gallery/MultiFunc.png",
       "assets/gallery/MultiFunc2.png",
@@ -1417,30 +2171,30 @@
       "assets/gallery/MultiFunc4.png"
     ],
     "WALDEN Robot": [
-      "assets/gallery/2.png",
-      "assets/gallery/3.png",
-      "assets/gallery/4.png",
-      "assets/gallery/5.png",
-      "assets/gallery/6.png"
+      "/assets/gallery/2.png",
+      "/assets/gallery/3.png",
+      "/assets/gallery/4.png",
+      "/assets/gallery/5.png",
+      "/assets/gallery/6.png"
     ],
     "TaleBot": [
-      "assets/gallery/TaleBot.png"
+      "/assets/gallery/TaleBot.png"
     ],
     "EcoSort Edu": [
-      "assets/gallery/CoverEcoSortEdu.png"
+      "/assets/gallery/EcoSort.png"
     ],
 
     /* --- WEB APPLICATION PROJECTS --- */
     "Hero Page-Home": [
-      "assets/gallery/HomePage1.png",
-      "assets/gallery/HomeServices.png",
-      "assets/gallery/HomeShops.png",
-      "assets/gallery/HomePage2.png",
-      "assets/gallery/HomePage3.png",
-      "assets/gallery/HomePage4.png",
-      "assets/gallery/HomePage5.png",
-      "assets/gallery/HomePage6.png",
-      "assets/gallery/HomePage7.png"
+      "/assets/gallery/HomePage1.png",
+      "/assets/gallery/HomeServices.png",
+      "/assets/gallery/HomeShops.png",
+      "/assets/gallery/HomePage2.png",
+      "/assets/gallery/HomePage3.png",
+      "/assets/gallery/HomePage4.png",
+      "/assets/gallery/HomePage5.png",
+      "/assets/gallery/HomePage6.png",
+      "/assets/gallery/HomePage7.png"
     ],
     "Non-Customer Management System": [
       "assets/Images/NonCustomerBookApp.png",
@@ -1453,9 +2207,9 @@
       "assets/Images/NonCustomerEditApp.png"
     ],
     "Customer Management System": [
-      "assets/gallery/CustomerLogin.png",
-      "assets/gallery/CustomerSignUp.png",
-      "assets/gallery/CustomerProfile.png",
+      "/assets/gallery/CustomerLogin.png",
+      "/assets/gallery/CustomerSignUp.png",
+      "/assets/gallery/CustomerProfile.png",
       "assets/Images/CustomerAppointment1.png",
       "assets/Images/CustomerCurrentApp.png",
       "assets/Images/CustomerEditApp.png",
@@ -1465,18 +2219,18 @@
       "assets/Images/CustomerPassedApp.png",
     ],
     "Admin Management System": [
-      "assets/gallery/AdminSignUp.png",
-      "assets/gallery/AdminLogin.png",
-      "assets/gallery/AdminProfile.png",
-      "assets/gallery/AdminShopDetails.png",
-      "assets/gallery/AdminAppointments.png",
+      "/assets/gallery/AdminSignUp.png",
+      "/assets/gallery/AdminLogin.png",
+      "/assets/gallery/AdminProfile.png",
+      "/assets/gallery/AdminShopDetails.png",
+      "/assets/gallery/AdminAppointments.png",
       "assets/Images/AdminCurrentApp.png",
       "assets/Images/AdminEditApp.png",
       "assets/Images/AdminPassedApp.png",
-      "assets/gallery/AdminInvoices.png",
+      "/assets/gallery/AdminInvoices.png",
       "assets/Images/AdminEditInvoice.png",
       "assets/Images/AdminCreateInvoices.png",
-      "assets/gallery/AdminServices.png",
+      "/assets/gallery/AdminServices.png",
       "assets/Images/AdminEditService.png"
 
     ],
@@ -1489,13 +2243,13 @@
       "assets/Images/SuperAdminTotal.png"
     ],
     "Mail Services": [
-      "assets/gallery/NewAdminSignUp.png",
-      "assets/gallery/Email-AdminSignUp.png",
-      "assets/gallery/Email-Appointemnt1.png",
-      "assets/gallery/Email-Appointemnt2.png",
-      "assets/gallery/Email-Appointment.png",
-      "assets/gallery/Email-Invoice.png",
-      "assets/gallery/Email-Invoice1.png"
+      "/assets/gallery/NewAdminSignUp.png",
+      "/assets/gallery/Email-AdminSignUp.png",
+      "/assets/gallery/Email-Appointemnt1.png",
+      "/assets/gallery/Email-Appointemnt2.png",
+      "/assets/gallery/Email-Appointment.png",
+      "/assets/gallery/Email-Invoice.png",
+      "/assets/gallery/Email-Invoice1.png"
     ]
   };
 
@@ -1524,6 +2278,42 @@
     // CLOSE MODAL
     function closeModal() {
     document.getElementById("imageModal").style.display = "none";
+  }
+//--------------------RRRR
+  function showDetailTab(tabIndex) {
+      const tabs = document.querySelectorAll('.detail-tab');
+      const contents = document.querySelectorAll('.detail-content');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      tabs[tabIndex].classList.add('active');
+      contents[tabIndex].classList.add('active');
+  }
+
+  function animateMilestones() {
+      const progressLine = document.querySelector('.progress-line');
+      if (!progressLine) return;
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  setTimeout(() => {
+                      progressLine.style.width = '42.8%';
+                  }, 300);
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, { threshold: 0.3 });
+
+      const container = document.querySelector('.research-overview');
+      if (container) observer.observe(container);
+  }
+
+  if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', animateMilestones);
+  } else {
+      animateMilestones();
   }
 
 
